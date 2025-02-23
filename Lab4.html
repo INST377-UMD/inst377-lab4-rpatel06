@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>INST377 - Lab 4</title>
+    <style>
+        body {
+            background-color: rgb(134, 185, 149);
+            text-align: center;
+        }
+        .section {
+            background-color: rgb(85, 56, 32);
+            color: rgb(252, 240, 215);
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 2px solid rgb(252, 240, 215);
+        }
+        input {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="header">INST377 - Riya Patel - Lab 4</h1>
+    
+    <div class="section">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+        <button onclick="alertName()">Alert Me</button>
+    </div>
+    
+    <div class="section">
+        <button onclick="changeColor()">Change Color</button>
+    </div>
+    
+    <div class="section">
+        <label for="textTester">Text Tester:</label>
+        <input type="text" id="textTester">
+        <button onclick="validateText()">Validate Text</button>
+    </div>
+    
+    <div class="section">
+        <button onclick="addText()">Add Text</button>
+    </div>
+    
+    <script>
+        function alertName() {
+            let name = document.getElementById('name').value;
+            if (name.trim() === "") {
+                alert("Please enter a name!");
+            } else {
+                alert("Hi " + name + "!");
+            }
+        }
+
+        function changeColor() {
+            document.body.style.backgroundColor = 
+                (document.body.style.backgroundColor === 'rgb(134, 185, 149)') ? 'rgb(244, 185, 185)' : 'rgb(134, 185, 149)';
+        }
+        
+        function validateText() {
+            let text = document.getElementById('textTester').value;
+            let validationRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+            if (validationRegex.test(text)) {
+                alert("Special characters are not allowed!");
+            } else {
+                alert("Text is valid!");
+            }
+        }
+        
+        function addText() {
+            let header = document.getElementById('header');
+            header.textContent += " Add Text";
+        }
+    </script>
+</body>
+</html>
